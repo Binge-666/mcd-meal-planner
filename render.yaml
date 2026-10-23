@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: mcd-meal-planner
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: MCD_TOKEN
+        sync: false

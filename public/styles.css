@@ -229,6 +229,85 @@ main {
   color: var(--ink-soft);
 }
 
+.china-map-wrap {
+  margin: 2px 0 18px;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.map-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--line);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.china-map {
+  padding: 8px 10px 4px;
+  background:
+    radial-gradient(rgba(23, 19, 15, 0.07) 1px, transparent 1px) 0 0 / 16px 16px,
+    var(--paper);
+}
+
+.china-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-land {
+  fill: var(--cream);
+  stroke: var(--ink);
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-city {
+  cursor: pointer;
+}
+
+.map-city circle {
+  fill: var(--red);
+  stroke: var(--paper);
+  stroke-width: 2;
+  transition: fill 0.15s ease, r 0.15s ease;
+}
+
+.map-city text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--ink);
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.map-city:hover circle,
+.map-city.active circle {
+  fill: var(--yellow);
+  stroke: var(--ink);
+}
+
+.map-city.active text {
+  fill: var(--red-dark);
+}
+
+@media (max-width: 640px) {
+  .map-city text {
+    font-size: 10px;
+  }
+}
+
 .search-row {
   display: flex;
   gap: 12px;

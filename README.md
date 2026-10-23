@@ -14,8 +14,9 @@
 
 ## 30 秒体验（免 Token）
 
-在线体验：[https://binge-666.github.io/mcd-meal-planner/](https://binge-666.github.io/mcd-meal-planner/)（已部署 GitHub Pages）；本地直接打开 [`docs/index.html`](docs/index.html) 即可。厦门中山路 5 家真实门店 + 39 个可用单品 + 营养、价格、优惠券、活动都已烘进**单文件 HTML**，不用安装、不用填 Token、不用起服务。
+在线体验：[https://binge-666.github.io/mcd-meal-planner/](https://binge-666.github.io/mcd-meal-planner/)（已部署 GitHub Pages）；本地直接打开 [`docs/index.html`](docs/index.html) 即可。全国 **20 城 100 家真实门店**（地图点选）、厦门中山路门店菜单、39 个可用单品、营养、价格、优惠券、活动都已烘进**单文件 HTML**，不用安装、不用填 Token、不用起服务。
 
+- 打开地图点任意城市，门店列表立即切换；厦门门店可直接配餐
 - 打开即按当前时间自动配好 6 组，再点「生成饭签」保存分享卡
 - 本地：双击 `docs/index.html`
 - GitHub Pages：仓库 Settings → Pages → Deploy from a branch → 选择 `main` 分支的 `/docs` 目录
@@ -44,6 +45,7 @@
 - **预算约束**：30 / 40 / 50 元内优先；预算内无解时给出最接近的方案，并明确标出超出金额
 - **营养可视**：每组方案展示热量、蛋白质、脂肪、碳水、钠，可展开逐项明细
 - **实价核验**：每组组合调用 `calculate-price` 返回实际应付价，而不是菜单价相加
+- **全国门店地图**：中国地图按城市标注收录门店数，点城市直接切换门店列表
 - **今日饭签**：Canvas 生成 1080×1350 分享卡（热量 / 价格 / 搭配 / 一句推荐理由）
 - **静态快照**：同一套前端可打包成单文件 demo，评委和路人 10 秒内看懂
 
@@ -60,7 +62,7 @@ $env:MCD_TOKEN="<你的 Token>"; npm start
 # 打开 http://localhost:3000
 ```
 
-也可以把 MCP 配置放在 `~/.workbuddy/mcp.json`：
+也兼容从 `~/.workbuddy/mcp.json` 读取 MCP 配置（与 `MCD_TOKEN` 二选一）：
 
 ```json
 {
@@ -102,22 +104,34 @@ npm run plan:demo -- --kcal 700 --meal dinner --tastes spicy --budget 40
 
 详见 [MCP_INTEGRATION.md](MCP_INTEGRATION.md)。
 
+## 公网部署（实时版）
+
+静态页面可以放任意静态托管，实时数据需要跑 Node 服务。服务只依赖 `MCD_TOKEN` 环境变量，不要把 Token 写进仓库或前端。
+
+```bash
+docker build -t mcd-meal-planner .
+docker run -p 3000:3000 -e MCD_TOKEN=<你的 Token> mcd-meal-planner
+```
+
+Render：New → Web Service → 选本仓库，Runtime 选 **Docker**，环境变量填 `MCD_TOKEN`，健康检查 `/api/health`；也可以直接用仓库里的 `render.yaml`。
+
 ## 技术实现
 
 - **后端**：Node.js（ESM）+ Express；`@modelcontextprotocol/sdk` 走 Streamable HTTP
 - **前端**：原生 HTML/CSS/JS，无构建步骤、无框架
 - **配餐算法**：`lib/planner.mjs` 纯函数，可同时跑在 Node 和浏览器
 - **营养匹配**：精确匹配 → 别名表 → 去杯型/规格后缀模糊匹配；匹配不到的单品不参与推荐
-- **静态 demo**：`scripts/build-static.mjs` 把门店/菜单/营养/券/活动快照、算法和前端打进一个 `docs/index.html`，并拦截 `/api/*` 请求
+- **静态 demo**：`scripts/build-static.mjs` 把门店/菜单/营养/券/活动快照、地图数据、算法和前端打进一个 `docs/index.html`，并拦截 `/api/*` 请求
+- **门店地图**：`scripts/build-cities.mjs` 用 MCP 抓 20 城门店，叠加中国 GeoJSON 生成轻量 SVG 路径（`public/map-data.js`）
 - **缓存**：门店/菜单 10 分钟、营养 60 分钟、券 5 分钟、价格 3 分钟
-- **WorkBuddy**：`skills/mcd-meal-planner/SKILL.md` 提供可安装的 Skill 说明
+- **Skill**：`skills/mcd-meal-planner/SKILL.md` 提供可安装的 MCP Skill 说明
 
 ## 项目结构
 
 ```text
 .
 ├── assets/                  # README 封面
-├── demo-data/               # 静态 demo 的门店/菜单/营养/券/活动快照
+├── demo-data/               # 静态 demo 快照（20 城门店 / 厦门菜单 / 营养 / 券 / 活动）
 ├── docs/
 │   └── index.html           # 免 Token 单文件静态 demo（GitHub Pages）
 ├── lib/
@@ -128,22 +142,27 @@ npm run plan:demo -- --kcal 700 --meal dinner --tastes spicy --budget 40
 │   ├── index.html
 │   ├── styles.css
 │   ├── app.js
+│   ├── map-data.js          # 中国地图 SVG + 20 城坐标（构建产物）
 │   └── card.js              # 今日饭签 Canvas
 ├── scripts/
+│   ├── build-cities.mjs     # 抓 20 城门店 + 生成地图数据
 │   ├── build-static.mjs     # 生成 docs/index.html
 │   ├── plan-cli.mjs         # 配餐算法命令行
 │   └── probe*.mjs           # 联调脚本
-├── skills/mcd-meal-planner/ # WorkBuddy Skill
+├── skills/mcd-meal-planner/ # MCP Skill 说明
 ├── server.mjs
+├── Dockerfile               # 实时版镜像
+├── render.yaml              # Render 一键部署
 ├── MCP_INTEGRATION.md
-├── CONTEST_DECLARATION.md   # 官方参赛声明（未改动）
-└── workbuddy.md
+└── CONTEST_DECLARATION.md   # 官方参赛声明（未改动）
 ```
 
 ## 数据与局限
 
-- 静态 demo 是 **2026-10-23 厦门中山路门店快照**，不是实时数据；实时版才走 MCP
-- 当前快照门店 112 个菜单条目中，39 个能匹配到营养数据并参与配餐；匹配不到的不推荐
+- 静态 demo 是 **2026-10-23 快照**，不是实时数据；实时版才走 MCP
+- 地图覆盖 20 城，每城取默认商圈 MCP 返回的前 5 家（共 100 家），是「收录门店数」而非全国门店总数；MCP 返回的门店经纬度为 0，地图标记使用城市中心点
+- 静态 demo 只烘了厦门中山路门店的菜单，地图切到其他城市可看门店但不能配餐；实时版不受此限制
+- 当前厦门快照 112 个菜单条目中，39 个能匹配到营养数据并参与配餐；匹配不到的不推荐
 - 套餐类、周边商品不纳入自动搭配；展示价优先用 `calculate-price` 实付价，接口失败时回退为菜单价之和
 - 仅覆盖到店自取、单人场景，不处理外送地址与多人拼单
 - 不代下单、不收集订单信息；实际购买请前往麦当劳官方渠道
@@ -151,7 +170,7 @@ npm run plan:demo -- --kcal 700 --meal dinner --tastes spicy --budget 40
 
 ## 参赛说明
 
-本作品参加麦当劳程序员创意开发大赛「用餐｜把饭点安排明白」方向，交付形式为可安装的 WorkBuddy Skill + 可在浏览器直接体验的 H5。
+本作品参加麦当劳程序员创意开发大赛「用餐｜把饭点安排明白」方向，交付形式为可在浏览器直接体验的 H5 + 可复用的 MCP Skill 说明。
 
 如果这个项目帮到了你，欢迎点右上角 **Star ⭐**。
 

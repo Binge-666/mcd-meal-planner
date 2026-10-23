@@ -67,6 +67,8 @@ const el = {
   cardImage: document.getElementById("cardImage"),
   cardDownload: document.getElementById("cardDownload"),
   cardClose: document.getElementById("cardClose"),
+  chinaMap: document.getElementById("chinaMap"),
+  mapHint: document.getElementById("mapHint"),
 };
 
 let toastTimer;
@@ -369,7 +371,7 @@ async function makePlan() {
   }
   renderSkeleton();
   el.makePlan.disabled = true;
-  el.makePlan.lastChild.textContent = " 配餐中";
+  el.makePlanLabel.textContent = "配餐中";
   el.results.scrollIntoView({ behavior: "smooth", block: "start" });
   try {
     const data = await api("/api/plan", {
@@ -395,7 +397,7 @@ async function makePlan() {
     toast(err.message);
   } finally {
     el.makePlan.disabled = false;
-    el.makePlan.lastChild.textContent = " 算算这顿怎么吃";
+    el.makePlanLabel.textContent = "算算这顿怎么吃";
   }
 }
 
@@ -429,6 +431,7 @@ el.keyword.addEventListener("keydown", (event) => {
 el.city.addEventListener("change", () => {
   const option = el.city.selectedOptions[0];
   if (option?.dataset.keyword) el.keyword.value = option.dataset.keyword;
+  highlightCity(el.city.value);
   loadStores();
 });
 
@@ -539,6 +542,60 @@ el.reshuffle.addEventListener("click", () => {
   makePlan();
 });
 
+const LABEL_OFFSET = {
+  北京: [-4, -12],
+  天津: [16, 4],
+  上海: [-14, 16],
+  苏州: [10, -12],
+  广州: [-6, -12],
+  深圳: [8, 14],
+};
+
+function renderMap() {
+  const map = window.CITY_MAP;
+  if (!map || !el.chinaMap) return;
+  const active = el.city.value;
+  const markers = map.cities
+    .map((city) => {
+      const [dx, dy] = LABEL_OFFSET[city.name] || [0, -12];
+      const isActive = city.name === active ? " active" : "";
+      return `
+        <g class="map-city${isActive}" data-city="${escapeHtml(city.name)}" role="button" tabindex="0">
+          <circle cx="${city.x}" cy="${city.y}" r="6"></circle>
+          <text x="${city.x + dx}" y="${city.y + dy}">${escapeHtml(city.name)}</text>
+          <title>${escapeHtml(city.name)} · 收录 ${city.count} 家门店</title>
+        </g>`;
+    })
+    .join("");
+  el.chinaMap.innerHTML = `
+    <svg viewBox="0 0 ${map.width} ${map.height}" xmlns="http://www.w3.org/2000/svg">
+      <path class="map-land" d="${map.path}" fill-rule="evenodd"></path>
+      ${markers}
+    </svg>`;
+  if (el.mapHint) {
+    const total = map.cities.reduce((sum, city) => sum + city.count, 0);
+    const mode = window.__DEMO__ ? "快照" : "收录";
+    el.mapHint.textContent = `${map.cities.length} 城 · ${mode} ${total} 家真实门店 · 点城市切换`;
+  }
+  el.chinaMap.onclick = (event) => {
+    const node = event.target.closest(".map-city");
+    if (!node) return;
+    const city = node.dataset.city;
+    setCity(city);
+    const option = el.city.selectedOptions[0];
+    if (option?.dataset.keyword) el.keyword.value = option.dataset.keyword;
+    highlightCity(city);
+    loadStores().then(() => el.storeList.scrollIntoView({ behavior: "smooth", block: "center" }));
+  };
+}
+
+function highlightCity(city) {
+  if (!el.chinaMap) return;
+  el.chinaMap.querySelectorAll(".map-city").forEach((node) => {
+    node.classList.toggle("active", node.dataset.city === city);
+  });
+}
+
 function applyQuery() {
   const params = new URLSearchParams(location.search);
   if (params.get("city")) {
@@ -575,6 +632,7 @@ function applyQuery() {
 
 async function init() {
   applyQuery();
+  renderMap();
   loadActivity();
   loadNow();
   try {

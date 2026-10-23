@@ -58,6 +58,13 @@
             <p>到店自取场景，查你附近真实在售的菜单。</p>
           </div>
         </div>
+        <div class="china-map-wrap">
+          <div class="map-head">
+            <span>全国门店地图</span>
+            <span id="mapHint">加载中…</span>
+          </div>
+          <div class="china-map" id="chinaMap" role="img" aria-label="全国门店地图"></div>
+        </div>
         <div class="search-row">
           <label class="field">
             <span>城市</span>
@@ -214,7 +221,7 @@
     <footer>
       <div class="footer-brand">麦计 · MCD MEAL PLANNER</div>
       <p>数据由麦当劳中国 MCP 提供，价格为到店自取场景。本作品仅作配餐参考，实际下单请前往麦当劳官方渠道。</p>
-      <p class="footer-small">Built with WorkBuddy · Powered by McDonald's MCP</p>
+      <p class="footer-small">Powered by McDonald's MCP · 实时 / 快照双模式</p>
     </footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -229,6 +236,7 @@
       </div>
     </div>
 
+    <script src="/map-data.js"></script>
     <script src="/card.js"></script>
     <script src="/app.js" type="module"></script>
   </body>

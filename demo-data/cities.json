@@ -1,0 +1,1187 @@
+{
+  "builtAt": "2026-10-23T10:53:39.960Z",
+  "source": "McDonald's MCP query-nearby-stores",
+  "label": "全国 20 城门店快照（每城取默认商圈真实返回）",
+  "cities": [
+    {
+      "city": "厦门",
+      "keyword": "中山路",
+      "count": 5,
+      "lat": 24.4798,
+      "lng": 118.0894,
+      "stores": [
+        {
+          "storeCode": "1410017",
+          "name": "麦当劳厦门美都餐厅",
+          "address": "中山路219-225号美都商厦一层及地下室",
+          "distance": 275,
+          "open": true,
+          "hours": "07:00-23:30",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410328",
+          "name": "麦当劳厦门镇海路中华城餐厅",
+          "address": "思明南路137-199号中华城D区三楼173号之74号/C区五楼5006号之3号商铺",
+          "distance": 423,
+          "open": true,
+          "hours": "09:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410053",
+          "name": "麦当劳厦门思明南路老虎城餐厅",
+          "address": "厦门思明南路118号老虎城",
+          "distance": 425,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410229",
+          "name": "麦当劳厦门局中街餐厅",
+          "address": "大中路南中广场局中街104-106号",
+          "distance": 617,
+          "open": true,
+          "hours": "06:30-00:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410431",
+          "name": "麦当劳厦门虎园路(白鹭宾馆)餐厅",
+          "address": "虎园路6-5-1号",
+          "distance": 768,
+          "open": true,
+          "hours": "06:30-00:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "福州",
+      "keyword": "东街口",
+      "count": 5,
+      "lat": 26.0745,
+      "lng": 119.2965,
+      "stores": [
+        {
+          "storeCode": "1410199",
+          "name": "麦当劳福州八一七北路餐厅",
+          "address": "八一七北路88号东百中心A馆A6门负一层T02号商铺",
+          "distance": 31,
+          "open": true,
+          "hours": "08:00-22:30",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410100",
+          "name": "麦当劳福州杨桥东路餐厅",
+          "address": "杨桥路中闽大厦C#二层1/12-17轴AC-DC号商铺",
+          "distance": 266,
+          "open": true,
+          "hours": "06:30-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410563",
+          "name": "麦当劳福州鼓屏路红霞新城餐厅",
+          "address": "鼓东路八一七北路红霞新城一层114号、115号、116号、26号、27号、28号、29号商铺",
+          "distance": 333,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410143",
+          "name": "麦当劳福州东街餐厅",
+          "address": "东街96-98号东方大厦",
+          "distance": 603,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410176",
+          "name": "麦当劳福州南后街餐厅",
+          "address": "南后街１号",
+          "distance": 654,
+          "open": true,
+          "hours": "06:30-23:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "泉州",
+      "keyword": "丰泽",
+      "count": 5,
+      "lat": 24.8741,
+      "lng": 118.6757,
+      "stores": [
+        {
+          "storeCode": "1410179",
+          "name": "麦当劳泉州丰泽路餐厅",
+          "address": "丰泽街丰泽广场一楼",
+          "distance": 1,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410540",
+          "name": "麦当劳泉州田安北路(刺桐城里)餐厅",
+          "address": "田安北路",
+          "distance": 818,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410184",
+          "name": "麦当劳泉州九一街餐厅",
+          "address": "九一街79号百脑汇商厦",
+          "distance": 1019,
+          "open": true,
+          "hours": "06:30-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410472",
+          "name": "麦当劳泉州刺桐南路万顺新领荟得来速餐厅",
+          "address": "刺桐路292号2幢",
+          "distance": 1327,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1410030",
+          "name": "麦当劳泉州金星餐厅",
+          "address": "东街金星大酒店一楼麦当劳",
+          "distance": 1379,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "北京",
+      "keyword": "国贸",
+      "count": 5,
+      "lat": 39.9042,
+      "lng": 116.4074,
+      "stores": [
+        {
+          "storeCode": "1950564",
+          "name": "麦当劳北京建外SOHO(A座)餐厅",
+          "address": "东三环中路39号院建外SOHO-A座",
+          "distance": 269,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1950581",
+          "name": "麦当劳北京光华东里餐厅",
+          "address": "光华东里8号院1号楼B1层B1-03商铺 ",
+          "distance": 394,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1950754",
+          "name": "麦当劳北京景辉街餐厅",
+          "address": "阳光保险金融中心地下一层麦当劳",
+          "distance": 538,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1950925",
+          "name": "麦当劳北京光华路世纪财富中心餐厅",
+          "address": "光华路5号院世纪财富中心B1-107",
+          "distance": 649,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1950553",
+          "name": "麦当劳北京景华南街餐厅",
+          "address": "东三环中路25号住总大厦",
+          "distance": 729,
+          "open": true,
+          "hours": "06:30-22:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "上海",
+      "keyword": "人民广场",
+      "count": 5,
+      "lat": 31.2304,
+      "lng": 121.4737,
+      "stores": [
+        {
+          "storeCode": "1450713",
+          "name": "麦当劳上海黄浦华旭国际大厦餐厅",
+          "address": "南京东路街道西藏中路336号",
+          "distance": 144,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1450441",
+          "name": "麦当劳上海福州路餐厅",
+          "address": "福州路666号",
+          "distance": 235,
+          "open": true,
+          "hours": "06:30-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1450056",
+          "name": "麦当劳上海食品一店餐厅",
+          "address": "南京东路720号",
+          "distance": 355,
+          "open": true,
+          "hours": "06:30-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1450195",
+          "name": "麦当劳上海雅居乐餐厅",
+          "address": "西藏中路525号",
+          "distance": 382,
+          "open": true,
+          "hours": "06:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1450124",
+          "name": "麦当劳上海南京西路NX258餐厅",
+          "address": "南京西路258号1幢一层",
+          "distance": 412,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "广州",
+      "keyword": "天河",
+      "count": 5,
+      "lat": 23.1291,
+      "lng": 113.2644,
+      "stores": [
+        {
+          "storeCode": "1400359",
+          "name": "麦当劳广州天源路餐厅",
+          "address": "天源路5号",
+          "distance": 134,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1400211",
+          "name": "麦当劳广州长兴路餐厅",
+          "address": "长兴路13号",
+          "distance": 562,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1400977",
+          "name": "麦当劳广州南方医科大餐厅",
+          "address": "沙太南路1023号-1063号南方医科大学二食堂房屋二层自编001号商铺",
+          "distance": 1706,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1400714",
+          "name": "麦当劳广州广垦天河1号餐厅",
+          "address": "怡新路163号广垦天河1号购物广场一层自编号05之一商铺麦当劳餐厅",
+          "distance": 1808,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1400257",
+          "name": "麦当劳广州燕岭路餐厅",
+          "address": "燕岭路91号新燕大厦首层",
+          "distance": 1813,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "深圳",
+      "keyword": "福田",
+      "count": 5,
+      "lat": 22.5431,
+      "lng": 114.0579,
+      "stores": [
+        {
+          "storeCode": "1420450",
+          "name": "麦当劳深圳福田高铁站餐厅",
+          "address": "福田地铁站时尚美食广场D区",
+          "distance": 251,
+          "open": true,
+          "hours": "06:30-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1420125",
+          "name": "麦当劳深圳领展中心城餐厅",
+          "address": "福华路领展中心城Ｇ层FG002",
+          "distance": 318,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1420514",
+          "name": "麦当劳深圳兴融二路(华融大厦)餐厅",
+          "address": "福安社区民田路178号华融大厦101、102、103号商铺",
+          "distance": 379,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1421131",
+          "name": "麦当劳深圳大中华次元小镇餐厅",
+          "address": "福田街道福华路1号深圳大中华国际交易广场GF-068",
+          "distance": 562,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1420159",
+          "name": "麦当劳深圳金田二餐厅",
+          "address": "金田路3037号建筑物负１层N01,N02,N02号商铺",
+          "distance": 588,
+          "open": true,
+          "hours": "07:00-21:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "成都",
+      "keyword": "春熙路",
+      "count": 5,
+      "lat": 30.5728,
+      "lng": 104.0668,
+      "stores": [
+        {
+          "storeCode": "3450410",
+          "name": "麦当劳成都锦江区联升巷(京都大厦)餐厅",
+          "address": "大科甲巷43号1栋1楼1号（自编号L10号）及2楼1号（自编号L210号）",
+          "distance": 173,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450339",
+          "name": "麦当劳成都锦江总府路茂业百货餐厅",
+          "address": "总府路1号茂业百货二层1号内部铺位号9F02001X商铺",
+          "distance": 288,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450069003",
+          "name": "成都锦江区春熙路地铁站快捷小站",
+          "address": "春熙路地铁站D1号商铺",
+          "distance": 293,
+          "open": true,
+          "hours": "07:30-23:30",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450069",
+          "name": "麦当劳成都第一城餐厅",
+          "address": "小科甲巷１号二层30、31号商铺（IFS）对面",
+          "distance": 299,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450043",
+          "name": "麦当劳成都壹购广场餐厅",
+          "address": "东大街上东大街段１３３号壹购潮流广场",
+          "distance": 344,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "杭州",
+      "keyword": "西湖",
+      "count": 5,
+      "lat": 30.2741,
+      "lng": 120.1551,
+      "stores": [
+        {
+          "storeCode": "3330257",
+          "name": "麦当劳杭州灵隐景区餐厅",
+          "address": "天竺路15号",
+          "distance": 2545,
+          "open": true,
+          "hours": "07:00-19:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3330536001",
+          "name": "杭州岳庙北山街88-5号商铺快捷小站",
+          "address": "西湖街道北山街88-5号商铺",
+          "distance": 3592,
+          "open": true,
+          "hours": "10:00-19:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3330536",
+          "name": "麦当劳杭州西湖区岳庙码头餐厅",
+          "address": "西湖街道西湖风景名胜区湖口路5-3号麦当劳餐厅",
+          "distance": 3615,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3330052",
+          "name": "麦当劳杭州西湖银泰餐厅",
+          "address": "延安路９８号",
+          "distance": 4917,
+          "open": true,
+          "hours": "06:30-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3330341",
+          "name": "麦当劳杭州滨江天寓餐厅",
+          "address": "东信大道1226号",
+          "distance": 4943,
+          "open": true,
+          "hours": "07:00-21:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "南京",
+      "keyword": "新街口",
+      "count": 5,
+      "lat": 32.0603,
+      "lng": 118.7969,
+      "stores": [
+        {
+          "storeCode": "1990346",
+          "name": "麦当劳南京新百餐厅",
+          "address": "中山南路1号A座负一层G-A-025号商铺",
+          "distance": 182,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990043",
+          "name": "麦当劳南京洪武餐厅",
+          "address": "洪武路119号",
+          "distance": 519,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990675",
+          "name": "麦当劳南京新街口苏宁餐厅",
+          "address": "淮海路 88 号苏宁广场一层101B商铺",
+          "distance": 645,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990762",
+          "name": "麦当劳南京青奥城市客厅餐厅",
+          "address": "中山东路145号1F-18、19商铺",
+          "distance": 645,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990100",
+          "name": "麦当劳南京汉中路餐厅",
+          "address": "白下区汉中路139-7号环亚广场一楼麦当劳",
+          "distance": 740,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "武汉",
+      "keyword": "江汉路",
+      "count": 5,
+      "lat": 30.5928,
+      "lng": 114.3055,
+      "stores": [
+        {
+          "storeCode": "1960008",
+          "name": "麦当劳武汉HAPPY站台餐厅(江汉路地铁H出口)",
+          "address": "中山大道888号新佳丽广场负一楼happy站台",
+          "distance": 144,
+          "open": true,
+          "hours": "07:00-00:15",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960138",
+          "name": "麦当劳武汉江汉路大汉口餐厅",
+          "address": "水塔街中山大道539号",
+          "distance": 149,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960073",
+          "name": "麦当劳武汉宝利金餐厅",
+          "address": "花楼街198号宝利金国际广场二期四座一层１－２号，二层１－４、30-34号商铺",
+          "distance": 169,
+          "open": true,
+          "hours": "07:00-02:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960327",
+          "name": "麦当劳武汉江汉路X118餐厅",
+          "address": "江汉路118号港澳中心一层L104、二层L203号商铺",
+          "distance": 348,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960258",
+          "name": "麦当劳武汉民众乐园餐厅",
+          "address": "中山大道704号",
+          "distance": 610,
+          "open": true,
+          "hours": "07:00-00:15",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "长沙",
+      "keyword": "五一广场",
+      "count": 5,
+      "lat": 28.2282,
+      "lng": 112.9388,
+      "stores": [
+        {
+          "storeCode": "3390081",
+          "name": "麦当劳长沙五一路平和堂餐厅",
+          "address": "黄兴中路88号平和堂商厦负一楼",
+          "distance": 196,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3390272",
+          "name": "麦当劳长沙中山路潮宗街餐厅",
+          "address": "黄兴北路与中山路交汇处",
+          "distance": 530,
+          "open": true,
+          "hours": "08:00-02:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3390089",
+          "name": "麦当劳长沙九龙仓餐厅",
+          "address": "东牌楼长沙国金中心商场地下一层LG114-LG115号商铺",
+          "distance": 553,
+          "open": true,
+          "hours": "10:30-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3390222",
+          "name": "麦当劳长沙开福万达餐厅",
+          "address": "中山路589号（开福万达广场4号门商场内1楼右转1013A麦当劳餐厅）",
+          "distance": 632,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3390222001",
+          "name": "长沙开福万达快捷小站",
+          "address": "中山路589号（开福万达广场3号门3楼麦当劳）",
+          "distance": 722,
+          "open": true,
+          "hours": "10:00-21:30",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "重庆",
+      "keyword": "解放碑",
+      "count": 5,
+      "lat": 29.563,
+      "lng": 106.5516,
+      "stores": [
+        {
+          "storeCode": "3450149",
+          "name": "麦当劳重庆金鹰财富中心餐厅",
+          "address": "解放碑邹容路82号负一层",
+          "distance": 73,
+          "open": true,
+          "hours": "07:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450146",
+          "name": "麦当劳重庆1089艺术美丽中心餐厅",
+          "address": "八一路53号负一层B01号、第一层103号",
+          "distance": 236,
+          "open": true,
+          "hours": "07:30-23:30",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450379",
+          "name": "麦当劳重庆解放碑赛博城市餐厅",
+          "address": "解放碑街道民族路168号1层L1-2-1号",
+          "distance": 346,
+          "open": true,
+          "hours": "08:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450136",
+          "name": "麦当劳重庆中信银行餐厅",
+          "address": "江北城西大街5号负5楼",
+          "distance": 1705,
+          "open": true,
+          "hours": "07:00-00:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3450303",
+          "name": "麦当劳重庆东原1891餐厅",
+          "address": "南滨路80号附2号麦当劳餐厅",
+          "distance": 1717,
+          "open": true,
+          "hours": "08:00-23:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "西安",
+      "keyword": "钟楼",
+      "count": 5,
+      "lat": 34.3416,
+      "lng": 108.9398,
+      "stores": [
+        {
+          "storeCode": "1960622",
+          "name": "麦当劳西安开元餐厅",
+          "address": "东大街解放市场6号首层",
+          "distance": 152,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960668",
+          "name": "麦当劳西安北大街餐厅",
+          "address": "北大街28号",
+          "distance": 255,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960602",
+          "name": "麦当劳西安钟鼓楼餐厅",
+          "address": "西大街1号钟鼓楼广场",
+          "distance": 296,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960701",
+          "name": "麦当劳西安北大街地铁站下沉广场餐厅",
+          "address": "北大街地铁站下沉广场",
+          "distance": 1114,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1960737",
+          "name": "麦当劳西安合生汇餐厅",
+          "address": "南大街合生汇",
+          "distance": 1177,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "天津",
+      "keyword": "滨江道",
+      "count": 5,
+      "lat": 39.0842,
+      "lng": 117.2009,
+      "stores": [
+        {
+          "storeCode": "1980197",
+          "name": "麦当劳天津张自忠路餐厅(地铁3号线津湾广场站B出口)",
+          "address": "津湾广场2号楼",
+          "distance": 321,
+          "open": false,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1980442001",
+          "name": "天津和平路地铁A出口快捷小站",
+          "address": "和平路地铁A出口",
+          "distance": 322,
+          "open": false,
+          "hours": "07:00-10:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1980090",
+          "name": "麦当劳天津滨江四餐厅",
+          "address": "滨江道127号",
+          "distance": 396,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1980442",
+          "name": "麦当劳天津赤峰道IS餐厅",
+          "address": "新华路116 号的一部分，具体为102、103、111、112、201、204商铺",
+          "distance": 733,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1980320",
+          "name": "麦当劳天津站后广场餐厅",
+          "address": "天津站北广场B1",
+          "distance": 1054,
+          "open": true,
+          "hours": "06:00-22:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "苏州",
+      "keyword": "观前街",
+      "count": 5,
+      "lat": 31.2989,
+      "lng": 120.5853,
+      "stores": [
+        {
+          "storeCode": "1990565",
+          "name": "麦当劳苏州察院场站餐厅",
+          "address": "人民路1381号1F-40号商铺",
+          "distance": 420,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990118",
+          "name": "麦当劳苏州临顿路餐厅",
+          "address": "平江区临顿路32-33号三层商铺",
+          "distance": 485,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990485",
+          "name": "麦当劳苏州仁恒仓街餐厅",
+          "address": "仓街商业广场LG1层第152号商铺",
+          "distance": 1318,
+          "open": true,
+          "hours": "08:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990638",
+          "name": "麦当劳苏州三元坊地铁站餐厅",
+          "address": "人民路750号一楼部分房屋",
+          "distance": 1465,
+          "open": true,
+          "hours": "06:30-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "1990603",
+          "name": "麦当劳苏州南门地铁站餐厅",
+          "address": "新市路、人民路苏州市轨道交通5号线南门站1-05商铺",
+          "distance": 2089,
+          "open": true,
+          "hours": "06:30-22:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "青岛",
+      "keyword": "五四广场",
+      "count": 5,
+      "lat": 36.0671,
+      "lng": 120.3826,
+      "stores": [
+        {
+          "storeCode": "3350268",
+          "name": "麦当劳青岛五四广场餐厅",
+          "address": "香港中路18号五四广场麦当劳餐厅",
+          "distance": 349,
+          "open": true,
+          "hours": "06:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3350179",
+          "name": "麦当劳青岛香港中路餐厅",
+          "address": "香港中路21号101B号铺位",
+          "distance": 651,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3350203",
+          "name": "麦当劳青岛万象城餐厅",
+          "address": "山东路6号万象城南广场下扶梯B1-151",
+          "distance": 693,
+          "open": true,
+          "hours": "06:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3350048",
+          "name": "麦当劳青岛澳门路餐厅",
+          "address": "澳门路88号百丽广场",
+          "distance": 791,
+          "open": true,
+          "hours": "06:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3350371",
+          "name": "麦当劳青岛万邦中心餐厅",
+          "address": "香港中路2号",
+          "distance": 929,
+          "open": true,
+          "hours": "06:00-23:59",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "郑州",
+      "keyword": "二七广场",
+      "count": 5,
+      "lat": 34.7466,
+      "lng": 113.6254,
+      "stores": [
+        {
+          "storeCode": "3560134",
+          "name": "麦当劳郑州西太康路新华书店餐厅",
+          "address": "西太康路19号(郑州购书中心一层)",
+          "distance": 611,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3560038",
+          "name": "麦当劳郑州紫荆山路新世界百货餐厅",
+          "address": "紫荆山路57号",
+          "distance": 1473,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3560003",
+          "name": "麦当劳郑州紫荆山餐厅",
+          "address": "人民路1号紫荆山百货1楼",
+          "distance": 1847,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3560007",
+          "name": "麦当劳郑州文化路餐厅",
+          "address": "文化路与黄河路交叉口新田大厦",
+          "distance": 2503,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3560118",
+          "name": "麦当劳郑州记忆油化厂创意园区餐厅",
+          "address": "黄河路68号",
+          "distance": 3257,
+          "open": true,
+          "hours": "09:00-00:00",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "大连",
+      "keyword": "青泥洼桥",
+      "count": 5,
+      "lat": 38.914,
+      "lng": 121.6147,
+      "stores": [
+        {
+          "storeCode": "3230368",
+          "name": "麦当劳大商新玛特青泥洼桥餐厅",
+          "address": "大商新玛特青泥店北门右侧临街",
+          "distance": 204,
+          "open": true,
+          "hours": "07:00-21:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3230461",
+          "name": "麦当劳大连希望广场儿童医院餐厅",
+          "address": "红岩街2号",
+          "distance": 487,
+          "open": true,
+          "hours": "07:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3230136",
+          "name": "麦当劳解放路大都会餐厅",
+          "address": "解放路大都会广场一楼临街",
+          "distance": 529,
+          "open": true,
+          "hours": "07:00-21:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3230058",
+          "name": "麦当劳天津街天和广场餐厅",
+          "address": "天津街天和广场塞隆眼镜广场一楼",
+          "distance": 1061,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3230226",
+          "name": "麦当劳大连胜利东路汇智云顶得来速餐厅",
+          "address": "胜利东路302号（麦当劳）",
+          "distance": 1241,
+          "open": true,
+          "hours": "06:00-22:30",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    },
+    {
+      "city": "昆明",
+      "keyword": "南屏街",
+      "count": 5,
+      "lat": 24.8801,
+      "lng": 102.8329,
+      "stores": [
+        {
+          "storeCode": "3570004001",
+          "name": "昆明南亚东南亚风情街快捷小站",
+          "address": "威远街和护国路交叉口南亚东南亚风情街06号商铺",
+          "distance": 238,
+          "open": true,
+          "hours": "10:00-22:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3570220",
+          "name": "麦当劳昆明柏联广场餐厅",
+          "address": "三市街6号柏联广场商场商业廊一层F1号，商业廊二层F2号",
+          "distance": 542,
+          "open": true,
+          "hours": "07:00-23:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3570004",
+          "name": "麦当劳昆明鸿城广场餐厅",
+          "address": "青年路鸿城广场负一层（小花园十字路口）",
+          "distance": 556,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3570062",
+          "name": "麦当劳昆明圆通山餐厅",
+          "address": "青年路92号昆明动物园餐饮区",
+          "distance": 1818,
+          "open": false,
+          "hours": "10:00-18:00",
+          "latitude": null,
+          "longitude": null
+        },
+        {
+          "storeCode": "3570114",
+          "name": "麦当劳昆明联贸大厦餐厅",
+          "address": "北京路102-104号联贸大厦一楼商铺",
+          "distance": 1918,
+          "open": true,
+          "hours": "00:00-23:59",
+          "latitude": null,
+          "longitude": null
+        }
+      ]
+    }
+  ]
+}
