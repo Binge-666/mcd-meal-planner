@@ -14,7 +14,7 @@
 
 ## 30 秒体验（免 Token）
 
-直接打开 [`docs/index.html`](docs/index.html) 即可。厦门中山路 5 家真实门店 + 39 个可用单品 + 营养、价格、优惠券、活动都已烘进**单文件 HTML**，不用安装、不用填 Token、不用起服务。
+在线体验：[https://binge-666.github.io/mcd-meal-planner/](https://binge-666.github.io/mcd-meal-planner/)（已部署 GitHub Pages）；本地直接打开 [`docs/index.html`](docs/index.html) 即可。厦门中山路 5 家真实门店 + 39 个可用单品 + 营养、价格、优惠券、活动都已烘进**单文件 HTML**，不用安装、不用填 Token、不用起服务。
 
 - 打开即按当前时间自动配好 6 组，再点「生成饭签」保存分享卡
 - 本地：双击 `docs/index.html`
