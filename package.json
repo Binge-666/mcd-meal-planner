@@ -1,0 +1,20 @@
+{
+  "name": "mcd-meal-planner",
+  "version": "1.0.0",
+  "description": "按热量和口味搭配麦当劳餐单的 H5 应用，数据来自麦当劳 MCP",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "build:demo": "node scripts/build-static.mjs",
+    "plan:demo": "node scripts/plan-cli.mjs --demo"
+  },
+  "keywords": ["mcdonalds", "mcp", "calorie", "meal-planner", "workbuddy", "skill"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "express": "^5.3.0"
+  }
+}
