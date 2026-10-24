@@ -52,3 +52,17 @@
 - 优惠券叠加与自动领券
 - 多人拼单与人均分摊
 - 早餐菜单快照（当前快照在晚餐时段采集，早餐品类不全）
+## 现场增量：MCP 调用轨迹（2026-10-24）
+
+- 目的：让评委直观看到真实 MCP 工具调用，证明已接入并调用麦当劳 MCP（非官网改动，为 1024 比赛现场增量）
+- 改动文件：
+  - lib/mcp.mjs：callMcp 加计时、结果数统计、环形缓冲 50 条日志，新增 getMcpLog()
+  - server.mjs：新增 GET /api/mcp-log（置于 catch-all 之前）
+  - public/index.html、public/app.js、public/styles.css：页脚加「MCP 调用轨迹」按钮及抽屉面板，每 2 秒拉取，展示工具名/耗时/结果数/成功失败、总调用/成功率/平均耗时
+  - docs/index.html：npm run build:demo 重新生成
+- 验证命令与结果：
+  - node --check server.mjs; node --check lib/mcp.mjs -> OK
+  - npm run build:demo -> docs/index.html 已生成：172.9 KB（门店 5 家 · 城市 20 个 · 可用菜品 39 个 · 券 2 张 · 活动 6 条）
+  - Invoke-WebRequest /api/health -> {"ok":true,"time":"2026-10-24 13:16:07"}
+  - Invoke-WebRequest /api/mcp-log -> {"ok":true,"mode":"live","entries":[...now-time-info...],"summary":{"total":2,...}}，无 Token/Bearer
+- 说明：主体功能（地图、厦门配餐、北京守卫、饭签等）未改动，仅做最小增量。

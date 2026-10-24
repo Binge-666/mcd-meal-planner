@@ -67,6 +67,16 @@ const el = {
   cardImage: document.getElementById("cardImage"),
   cardDownload: document.getElementById("cardDownload"),
   cardClose: document.getElementById("cardClose"),
+  chinaMap: document.getElementById("chinaMap"),
+  mapHint: document.getElementById("mapHint"),
+  mcpTraceBtn: document.getElementById("mcpTraceBtn"),
+  traceDrawer: document.getElementById("traceDrawer"),
+  traceBackdrop: document.getElementById("traceBackdrop"),
+  traceClose: document.getElementById("traceClose"),
+  traceMode: document.getElementById("traceMode"),
+  traceSummary: document.getElementById("traceSummary"),
+  traceHint: document.getElementById("traceHint"),
+  traceList: document.getElementById("traceList"),
 };
 
 let toastTimer;
@@ -369,7 +379,7 @@ async function makePlan() {
   }
   renderSkeleton();
   el.makePlan.disabled = true;
-  el.makePlan.lastChild.textContent = " 配餐中";
+  el.makePlanLabel.textContent = "配餐中";
   el.results.scrollIntoView({ behavior: "smooth", block: "start" });
   try {
     const data = await api("/api/plan", {
@@ -395,7 +405,7 @@ async function makePlan() {
     toast(err.message);
   } finally {
     el.makePlan.disabled = false;
-    el.makePlan.lastChild.textContent = " 算算这顿怎么吃";
+    el.makePlanLabel.textContent = "算算这顿怎么吃";
   }
 }
 
@@ -429,6 +439,7 @@ el.keyword.addEventListener("keydown", (event) => {
 el.city.addEventListener("change", () => {
   const option = el.city.selectedOptions[0];
   if (option?.dataset.keyword) el.keyword.value = option.dataset.keyword;
+  highlightCity(el.city.value);
   loadStores();
 });
 
@@ -539,6 +550,60 @@ el.reshuffle.addEventListener("click", () => {
   makePlan();
 });
 
+const LABEL_OFFSET = {
+  北京: [-4, -12],
+  天津: [16, 4],
+  上海: [-14, 16],
+  苏州: [10, -12],
+  广州: [-6, -12],
+  深圳: [8, 14],
+};
+
+function renderMap() {
+  const map = window.CITY_MAP;
+  if (!map || !el.chinaMap) return;
+  const active = el.city.value;
+  const markers = map.cities
+    .map((city) => {
+      const [dx, dy] = LABEL_OFFSET[city.name] || [0, -12];
+      const isActive = city.name === active ? " active" : "";
+      return `
+        <g class="map-city${isActive}" data-city="${escapeHtml(city.name)}" role="button" tabindex="0">
+          <circle cx="${city.x}" cy="${city.y}" r="6"></circle>
+          <text x="${city.x + dx}" y="${city.y + dy}">${escapeHtml(city.name)}</text>
+          <title>${escapeHtml(city.name)} · 收录 ${city.count} 家门店</title>
+        </g>`;
+    })
+    .join("");
+  el.chinaMap.innerHTML = `
+    <svg viewBox="0 0 ${map.width} ${map.height}" xmlns="http://www.w3.org/2000/svg">
+      <path class="map-land" d="${map.path}" fill-rule="evenodd"></path>
+      ${markers}
+    </svg>`;
+  if (el.mapHint) {
+    const total = map.cities.reduce((sum, city) => sum + city.count, 0);
+    const mode = window.__DEMO__ ? "快照" : "收录";
+    el.mapHint.textContent = `${map.cities.length} 城 · ${mode} ${total} 家真实门店 · 点城市切换`;
+  }
+  el.chinaMap.onclick = (event) => {
+    const node = event.target.closest(".map-city");
+    if (!node) return;
+    const city = node.dataset.city;
+    setCity(city);
+    const option = el.city.selectedOptions[0];
+    if (option?.dataset.keyword) el.keyword.value = option.dataset.keyword;
+    highlightCity(city);
+    loadStores().then(() => el.storeList.scrollIntoView({ behavior: "smooth", block: "center" }));
+  };
+}
+
+function highlightCity(city) {
+  if (!el.chinaMap) return;
+  el.chinaMap.querySelectorAll(".map-city").forEach((node) => {
+    node.classList.toggle("active", node.dataset.city === city);
+  });
+}
+
 function applyQuery() {
   const params = new URLSearchParams(location.search);
   if (params.get("city")) {
@@ -573,8 +638,92 @@ function applyQuery() {
   }
 }
 
+let traceTimer = null;
+
+async function loadMcpTrace() {
+  if (!el.traceList) return;
+  try {
+    const res = await fetch("/api/mcp-log");
+    const data = await res.json();
+    if (!data.ok) throw new Error("获取失败");
+    if (el.traceMode) el.traceMode.textContent = data.mode === "live" ? "实时模式" : "模式";
+    if (el.traceHint) {
+      if (window.__DEMO__) {
+        el.traceHint.hidden = false;
+        el.traceHint.textContent = "静态快照模式，实时调用需本地启动";
+      } else {
+        el.traceHint.hidden = true;
+      }
+    }
+    const s = data.summary || { total: 0, ok: 0, failed: 0, avgMs: 0 };
+    const rate = s.total ? Math.round((s.ok / s.total) * 100) : 0;
+    if (el.traceSummary) {
+      el.traceSummary.innerHTML = `
+        <div class="item"><strong>${s.total}</strong><span>总调用</span></div>
+        <div class="item"><strong>${rate}%</strong><span>成功率</span></div>
+        <div class="item"><strong>${s.avgMs}ms</strong><span>平均耗时</span></div>
+        <div class="item"><strong>${s.failed}</strong><span>失败</span></div>
+      `;
+    }
+    const entries = data.entries || [];
+    if (!entries.length) {
+      el.traceList.innerHTML = '<div class="store-empty">暂无调用记录</div>';
+      return;
+    }
+    el.traceList.innerHTML = entries
+      .map((e) => {
+        const time = e.at ? e.at.slice(11, 19) : "";
+        const count = e.count == null ? "-" : e.count;
+        return `
+          <article class="trace-item ${e.ok ? "" : "fail"}">
+            <div>
+              <div class="name">${escapeHtml(e.name)}</div>
+              <div class="meta">
+                <span>${time}</span>
+                <span>尝试 ${e.attempts || 1}</span>
+                ${e.error ? `<span>err: ${escapeHtml(e.error)}</span>` : ""}
+              </div>
+            </div>
+            <div class="right">
+              <div class="status ${e.ok ? "ok" : "fail"}">${e.ok ? "成功" : "失败"}</div>
+              <div>${e.ms}ms · ${count} 条</div>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+  } catch (err) {
+    if (el.traceHint) {
+      el.traceHint.hidden = false;
+      el.traceHint.textContent = "静态快照模式，实时调用需本地启动";
+    }
+    if (el.traceSummary) el.traceSummary.innerHTML = "";
+    if (el.traceList) el.traceList.innerHTML = `<div class="store-empty">${escapeHtml(err.message)}</div>`;
+  }
+}
+
+function openTrace() {
+  if (!el.traceDrawer) return;
+  el.traceDrawer.hidden = false;
+  document.body.style.overflow = "hidden";
+  loadMcpTrace();
+  if (traceTimer) clearInterval(traceTimer);
+  traceTimer = setInterval(loadMcpTrace, 2000);
+}
+
+function closeTrace() {
+  if (!el.traceDrawer) return;
+  el.traceDrawer.hidden = true;
+  document.body.style.overflow = "";
+  if (traceTimer) {
+    clearInterval(traceTimer);
+    traceTimer = null;
+  }
+}
+
 async function init() {
   applyQuery();
+  renderMap();
   loadActivity();
   loadNow();
   try {
@@ -589,5 +738,17 @@ async function init() {
     makePlan();
   }
 }
+
+if (el.mcpTraceBtn) {
+  el.mcpTraceBtn.addEventListener("click", () => {
+    if (el.traceDrawer && el.traceDrawer.hidden) openTrace();
+    else closeTrace();
+  });
+}
+if (el.traceBackdrop) el.traceBackdrop.addEventListener("click", closeTrace);
+if (el.traceClose) el.traceClose.addEventListener("click", closeTrace);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && el.traceDrawer && !el.traceDrawer.hidden) closeTrace();
+});
 
 init();

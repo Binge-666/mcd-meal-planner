@@ -1,7 +1,7 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { callMcp } from "./lib/mcp.mjs";
+import { callMcp, getMcpLog } from "./lib/mcp.mjs";
 import {
   calcPrice,
   getActivity,
@@ -54,6 +54,10 @@ app.get("/api/health", async (req, res) => {
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message });
   }
+});
+
+app.get("/api/mcp-log", (req, res) => {
+  res.json(getMcpLog());
 });
 
 app.get("/api/now", async (req, res) => {
