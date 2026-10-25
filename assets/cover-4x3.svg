@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="麦计 · 饭点管家">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.2" fill="#ffffff" opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1200" fill="#da291c"/>
+  <rect width="1600" height="1200" fill="url(#dots)"/>
+
+  <g transform="translate(720 96) scale(1.43)">
+    <rect width="112" height="112" rx="26" fill="#ffc72c" stroke="#17130f" stroke-width="6"/>
+    <path d="M26 84V44c0-13 8-21 18-21s18 8 18 21v40M62 84V44c0-13 8-21 18-21s18 8 18 21v40"
+          fill="none" stroke="#da291c" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <text x="800" y="400" text-anchor="middle" fill="#ffffff" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="96" font-weight="900">麦计 · 饭点管家</text>
+  <text x="800" y="466" text-anchor="middle" fill="#ffc72c" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="42" font-weight="700">现在几点 × 吃什么 × 还能吃多少</text>
+
+  <g transform="translate(560 520)">
+    <rect width="480" height="470" rx="32" fill="#fffdf8" stroke="#17130f" stroke-width="8"/>
+    <rect x="36" y="36" width="120" height="44" rx="22" fill="#ffc72c" stroke="#17130f" stroke-width="4"/>
+    <text x="96" y="66" text-anchor="middle" fill="#17130f" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="22" font-weight="900">晚餐</text>
+    <text x="36" y="128" fill="#5b5248" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="24" font-weight="700">今日饭签</text>
+    <text x="36" y="196" fill="#17130f" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="56" font-weight="900">630 kcal</text>
+    <line x1="36" y1="228" x2="444" y2="228" stroke="#17130f" stroke-width="3" stroke-dasharray="10 10" opacity="0.35"/>
+    <text x="36" y="288" fill="#17130f" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="30" font-weight="700">板烧鸡腿堡 + 中薯条</text>
+    <text x="36" y="334" fill="#5b5248" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="24">蛋白质 31g · 到店自取</text>
+    <text x="36" y="428" fill="#da291c" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="52" font-weight="900">¥26.5</text>
+  </g>
+
+  <text x="800" y="1072" text-anchor="middle" fill="#ffe9a3" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="28" font-weight="700">早餐 / 午餐 / 下午茶 / 晚餐 / 夜宵，把每一顿安排明白</text>
+  <text x="800" y="1128" text-anchor="middle" fill="#ffe9a3" opacity="0.85" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="22">McDonald's China MCP · 免 Token 在线体验</text>
+</svg>

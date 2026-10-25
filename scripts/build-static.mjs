@@ -16,12 +16,15 @@ function readJson(relative) {
 const menu = readJson("demo-data/menu.json");
 if (!menu.items?.length) throw new Error("demo-data/menu.json 没有可用菜品，先跑一次在线配餐再更新快照");
 
+const citySnapshot = readJson("demo-data/cities.json");
+
 const demo = {
   builtAt: new Date().toISOString(),
-  label: "厦门中山路门店快照",
+  label: `全国 ${citySnapshot.cities.length} 城门店 + 厦门菜单快照`,
   city: "厦门",
   keyword: "中山路",
   stores: readJson("demo-data/stores.json").stores || [],
+  cities: citySnapshot.cities || [],
   menu: {
     storeCode: menu.storeCode,
     coverage: menu.coverage,
@@ -85,12 +88,19 @@ const adapter = `
 
     if (pathname.endsWith("/api/health")) return reply({ ok: true, time: nowData().time });
     if (pathname.endsWith("/api/now")) return reply(nowData());
-    if (pathname.endsWith("/api/stores")) return reply({ ok: true, stores: DEMO.stores });
+    if (pathname.endsWith("/api/stores")) {
+      var city = parsed.searchParams.get("city") || "";
+      var matched = (DEMO.cities || []).filter(function (entry) { return entry.city === city; })[0];
+      return reply({ ok: true, stores: matched ? matched.stores : DEMO.stores });
+    }
     if (pathname.endsWith("/api/activity")) return reply({ ok: true, currentTime: nowData().time, list: DEMO.activity });
 
     if (pathname.endsWith("/api/plan")) {
       var body = {};
       try { body = JSON.parse((options && options.body) || "{}"); } catch (err) { body = {}; }
+      if (body.storeCode && body.storeCode !== DEMO.menu.storeCode) {
+        return reply({ ok: false, error: "静态演示只烘了厦门中山路门店的菜单；切换回厦门即可配餐，实时版支持全国门店。" });
+      }
       var target = Math.min(1400, Math.max(200, Number(body.targetKcal) || 700));
       var budget = Number(body.budget) || 0;
       var result = planCombos({
@@ -136,6 +146,11 @@ html = html.replace(
 );
 
 html = html.replace(
+  '<script src="/map-data.js"></script>',
+  `<script>\n${read("public/map-data.js")}\n</script>`
+);
+
+html = html.replace(
   '<script src="/card.js"></script>',
   `<script>\n${card}\n</script>`
 );
@@ -147,13 +162,7 @@ html = html.replace(
 
 html = html.replace(
   "<body>",
-  '<body>\n    <div class="demo-banner">静态演示 · 厦门中山路门店快照 · 免 Token 即开即玩 · 实时版需本地启动</div>'
-);
-
-html = html.replace(/\n\s*<option value="(?!厦门")[^"]*"[^>]*>[^<]*<\/option>/g, "");
-html = html.replace(
-  'id="keyword" value="中山路" autocomplete="off"',
-  'id="keyword" value="中山路" autocomplete="off" readonly title="静态演示固定为中山路商圈"'
+  '<body>\n    <div class="demo-banner">静态演示 · 全国 20 城门店 + 厦门菜单快照 · 免 Token 即开即玩 · 实时版需本地启动</div>'
 );
 
 new Function(card);
@@ -166,4 +175,4 @@ fs.writeFileSync(path.join(outDir, ".nojekyll"), "", "utf8");
 
 const size = Buffer.byteLength(html, "utf8");
 console.log(`docs/index.html 已生成：${(size / 1024).toFixed(1)} KB`);
-console.log(`门店 ${demo.stores.length} 家 · 可用菜品 ${demo.menu.items.length} 个 · 券 ${demo.coupons.length} 张 · 活动 ${demo.activity.length} 条`);
+console.log(`门店 ${demo.stores.length} 家 · 城市 ${demo.cities.length} 个 · 可用菜品 ${demo.menu.items.length} 个 · 券 ${demo.coupons.length} 张 · 活动 ${demo.activity.length} 条`);

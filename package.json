@@ -10,7 +10,7 @@
     "build:demo": "node scripts/build-static.mjs",
     "plan:demo": "node scripts/plan-cli.mjs --demo"
   },
-  "keywords": ["mcdonalds", "mcp", "calorie", "meal-planner", "workbuddy", "skill"],
+  "keywords": ["mcdonalds", "mcp", "calorie", "meal-planner", "skill"],
   "author": "",
   "license": "MIT",
   "dependencies": {
